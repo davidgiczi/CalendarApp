@@ -134,7 +134,7 @@
 
 	<font style="color: grey">Bejegyzés színe:</font>
 	
-	<select id="color" style="background-color:#FFE">
+	<select id="color" style="background-color:#FFE;cursor: pointer;">
 	
 	<c:forEach items="${colorstore}" var="color" begin="0" varStatus="i">
 		
