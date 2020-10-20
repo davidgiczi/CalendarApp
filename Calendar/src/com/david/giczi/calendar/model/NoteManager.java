@@ -70,11 +70,22 @@ public class NoteManager {
 			if (row.startsWith("#")) {
 
 				note.setColor(row);
-			} else if (row.endsWith(":")) {
+			} else if (row.endsWith(":") && 
+					"registration".equals(note.getPreContent())) {
 
 				note.setPreContent(row);
 			} else {
-				note.setContent(row);
+				
+				
+				if(note.getContent() == null) {
+					
+					note.setContent(row);
+				}
+				else {
+					
+					String content = note.getContent() + "^" + row;
+					note.setContent(content);
+				}
 			}
 		}
 		
@@ -120,10 +131,20 @@ public class NoteManager {
 
 				writer.write(note.getColor());
 				writer.newLine();
-				writer.write(note.getPreContent());	
-				if (note.getContent() != null) {
+				if(!"registration".equals(note.getPreContent()) && !note.getPreContent().isEmpty()){
+					writer.write(note.getPreContent());
 					writer.newLine();
-					writer.write(note.getContent());
+				}
+				if (note.getContent() != null) {
+					
+
+					String[] contents = note.getContent().split("\\^");
+					
+					for (String content : contents) {
+						writer.write(content);
+						writer.newLine();
+					}
+					
 				}
 
 			} catch (IOException e) {

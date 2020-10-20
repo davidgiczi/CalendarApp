@@ -6,7 +6,7 @@ public class Note {
 	private final String noteFileName;
 	private String preContent = "registration";
 	private String content;
-	private String color = "#FF00FF";
+	private String color;
 	private int size = 3;
 	
 	public Note(String noteFileName) {
