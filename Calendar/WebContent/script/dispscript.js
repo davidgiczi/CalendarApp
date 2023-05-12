@@ -42,7 +42,7 @@ function addNote() {
 			var dd = day > 9 ? day : "0" + day;
 			var msg = document.getElementById(day).innerText.trim();
 				
-			if(msg.endsWith(":")){
+			if(msg.endsWith(";")){
 				
 				sendDataForNoteRegistration(actualyear, getMonthNumberByName(), day, msg, selectColor.selectedIndex);
 				return;

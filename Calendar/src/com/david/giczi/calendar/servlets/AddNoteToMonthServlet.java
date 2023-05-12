@@ -57,7 +57,7 @@ public class AddNoteToMonthServlet extends HttpServlet {
 
 		} else {
 
-			String[] inputData = inputDataStore.get("msg")[0].split(":");
+			String[] inputData = inputDataStore.get("msg")[0].split(";");
 
 			try {
 
@@ -66,7 +66,7 @@ public class AddNoteToMonthServlet extends HttpServlet {
 				if(inputData.length == 2) {
 				
 				note.setColor(DisplayerManager.noteColor[Integer.parseInt(inputDataStore.get("color")[0])]);
-				note.setPreContent(inputData[0] + ":");
+				note.setPreContent(inputData[0] + ";");
 				note.setContent(inputData[1].trim());
 				NoteManager.saveNote(note, PropertyStore.URL4);
 				NoteManager.openNote(note, PropertyStore.URL4);
@@ -89,7 +89,7 @@ public class AddNoteToMonthServlet extends HttpServlet {
 				if(inputData.length == 2) {
 					
 					note.setColor(DisplayerManager.noteColor[Integer.parseInt(inputDataStore.get("color")[0])]);
-					note.setPreContent(inputData[0] + ":");
+					note.setPreContent(inputData[0] + ";");
 					note.setContent(inputData[1].trim());
 					NoteManager.saveNote(note, PropertyStore.URL4);
 					response.getWriter().append("ok");

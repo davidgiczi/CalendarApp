@@ -70,7 +70,7 @@ public class NoteManager {
 			if (row.startsWith("#")) {
 
 				note.setColor(row);
-			} else if (row.endsWith(":") && 
+			} else if (row.endsWith(";") && 
 					"registration".equals(note.getPreContent())) {
 
 				note.setPreContent(row);
